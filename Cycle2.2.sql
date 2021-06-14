@@ -1,4 +1,4 @@
-# Question 2
+# Question 1
 
 CREATE TABLE STUDENT_INFO
 (
@@ -16,7 +16,7 @@ UPDATE STUDENT_INFO set student_score=student_score +5 where student_score >150;
 SELECT * FROM STUDENT_INFO;
 DROP TABLE STUDENT_INFO;
 
-#Question 1
+#Question 2
 
 CREATE TABLE WORKER
 (
