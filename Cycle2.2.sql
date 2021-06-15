@@ -14,7 +14,6 @@ INSERT INTO STUDENT_INFO VALUES
 (3,'Minna',155);
 UPDATE STUDENT_INFO set student_score=student_score +5 where student_score >150;
 SELECT * FROM STUDENT_INFO;
-DROP TABLE STUDENT_INFO;
 
 #Question 2
 
@@ -28,14 +27,14 @@ joining_date DATE,
 department VARCHAR(15),
 primary key pk (worker_id)
 );
-DROP TABLE WORKER;
 DESC WORKER;
+
 CREATE TABLE BONUS(
 worker_id int,
 bounus_date DATE,
 bonus_amount int
 );
-DROP TABLE BONUS;
+
 DESC BONUS;
  ALTER TABLE bonus ADD CONSTRAINT fk_cod_csd FOREIGN KEY(worker_id) REFERENCES worker(worker_id)ON DELETE CASCADE;
 INSERT INTO WORKER VALUES
