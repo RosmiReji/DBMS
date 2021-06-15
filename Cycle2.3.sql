@@ -1,15 +1,13 @@
  CREATE TABLE customer
  ( cust_id   INT PRIMARY KEY,
  cust_name VARCHAR(20) NOT NULL ); 
- desc Customer;
- desc sale;
- desc item;
+ 
  CREATE TABLE item 
  (
  item_id INT PRIMARY KEY,
  item_name VARCHAR(25),
  price INT);
- DROP TABLE SALE;
+
   CREATE TABLE sale
   (bill_no   INT PRIMARY KEY, 
   bill_date DATE NOT NULL,
@@ -18,6 +16,7 @@
    qty_sold  NUMERIC(6,3) NOT NULL,FOREIGN KEY(item_id)         
    REFERENCES item(item_id),
    FOREIGN KEY (cust_id) REFERENCES customer(cust_id));
+   
   INSERT INTO customer VALUES
   (1,'Rekha'),
   (2,'Rani'),
@@ -46,8 +45,7 @@
   SELECT * FROM ITEM;
    SELECT * FROM customer,item,sale WHERE price> 200 AND sale.item_id = item.item_id AND sale.cust_id = customer.cust_id;
   SELECT distinct cust_name,prod_nums, bill_date FROM customer,(SELECT cust_id,COUNT(item_id) AS prod_nums,bill_date   
-  FROM sale GROUP BY (bill_date) )ci  WHERE ci.cust_id = customer.cust_id;
-  
+  FROM sale GROUP BY (bill_date) )ci  WHERE ci.cust_id = customer.cust_id;  
 SELECT cust_name,COUNT(item_id), bill_date FROM customer c, sale s WHERE c.cust_id = s.cust_id  GROUP BY cust_name,bill_date HAVING extract(YEAR FROM bill_date) = 2018;
  SELECT item_name FROM item,sale WHERE sale.item_id = item.item_id  AND sale.cust_id  = 5;
 SELECT item_name, price,qty_sold FROM item ,sale, (SELECT CURDATE() AS Today FROM dual ) tod WHERE sale.item_id = item.item_id AND bill_date= today ;
