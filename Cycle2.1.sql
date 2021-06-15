@@ -29,7 +29,7 @@ INSERT INTO BOATS VALUES
 (103 ,'Clipper',' Green'),
 (104 ,'Marine', 'Red' );
 SELECT * FROM BOATS;
-TRUNCATE TABLE BOATS;
+
 CREATE TABLE RESERVES
 (
 sid int,
